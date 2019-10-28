@@ -3,6 +3,8 @@ package com.java.core.string.util;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
+
 import com.java.core.string.constant.StringConstants;
 import com.java.core.string.exception.StringOperationException;
 
@@ -46,7 +48,7 @@ public class StringUtils extends StringHelper
 	public static String sortUniqStrings(String sentence,String delimeter) throws StringOperationException
 	{
 	
-	return removeduplicateWord	(sortStrings(sentence,delimeter),delimeter);
+	return removeDuplicateWord	(sortStrings(sentence,delimeter),delimeter);
 	
 	}
 	public static String sortUniqStrings(String sentence) throws StringOperationException
@@ -83,4 +85,27 @@ public class StringUtils extends StringHelper
 		printMap(map);
 		
 	}
+	
+	public static String reversString(String string)
+	{
+		StringBuffer buffer =new StringBuffer(string);
+		buffer.reverse();
+		return buffer.toString();
+		
+	}
+	public static String removeDulicateCharFromString(String string) throws StringOperationException
+	{
+	
+		return removeDuplicateChar(string);
+		
+	}
+	
+	public static String removeDuplicateWordFromStrings(String sentence) throws StringOperationException
+	{
+	
+		return removeDuplicateWord(sentence);
+		
+	}
+	
+	
 }

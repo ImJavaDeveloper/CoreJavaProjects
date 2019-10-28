@@ -87,8 +87,8 @@ public class Test {
 			//printWordSorted(consolString);
 			//System.out.println(sortUniqWord(consolString));
 		
-		System.out.println(StringUtils.sortString("aabbccaa"));
-		StringUtils.printWordcount("aa bb cc aa");
+		//System.out.println(StringUtils.sortString("aabbccaa"));
+		System.out.println(StringUtils.reversString("ad bc cm az"));
 		
 	}
 

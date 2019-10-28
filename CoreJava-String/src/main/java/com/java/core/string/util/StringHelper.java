@@ -3,6 +3,7 @@ package com.java.core.string.util;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
 
 import com.java.core.string.constant.StringConstants;
@@ -26,12 +27,12 @@ public class StringHelper {
 		
 	}
 	
-	protected static String  removeduplicateWord(String sentence) throws StringOperationException
+	protected static String  removeDuplicateWord(String sentence) throws StringOperationException
 	{
-		return removeduplicateWord(sentence,null);
+		return removeDuplicateWord(sentence,null);
 	}
 	
-	protected static String  removeduplicateWord(String sentence,String delimeter) throws StringOperationException
+	protected static String  removeDuplicateWord(String sentence,String delimeter) throws StringOperationException
 	{
 		String strings[]=splitStrings(sentence, delimeter);
 		Set<String> set=new LinkedHashSet<String>();
@@ -50,15 +51,67 @@ public class StringHelper {
 		return buffer.toString();
 	}
 
-protected static void printMap(Map<String, ?> map)
-{
-	Set<String> keySet=map.keySet();
-	Iterator<String> itr=keySet.iterator();
+	protected static String  removeDuplicateChar(String word) throws StringOperationException
+	{
+		int j=0;
+		char chars[]=word.toCharArray();
+        char[] uniqChar=new char[chars.length];
+        Set<Character> set= new LinkedHashSet<Character>();
+        for(int i=0;i<chars.length;i++)
+        {
+        	set.add(chars[i]);
+        }
+		
+		Iterator< Character> itr=set.iterator();
+		while(itr.hasNext())
+		{
+			uniqChar[j++]=itr.next();
+		}
+		
+		return new String(uniqChar);
+	}
 	
-	while(itr.hasNext())
-	 {
-		String key=itr.next();
-		System.out.println("key:"+key+"-->Value:"+map.get(key)); 
-	 }
+      protected static void printMap(Map<String, ?> map)
+      {
+	    Set<String> keySet=map.keySet();
+	    Iterator<String> itr=keySet.iterator();
+	
+	     while(itr.hasNext())
+	       {
+		    String key=itr.next();
+		    System.out.println("key:"+key+"-->Value:"+map.get(key)); 
+	       }
+       }
+
+     public static boolean isInteger(String string)
+      {
+        Scanner scanner=new Scanner(string);
+        try {
+        if(scanner.hasNextInt())
+	       return true;
+        else
+	   return false;
+      }
+finally {
+	scanner.close();	
 }
+
+	/*try {
+	int n=Integer.parseInt(string);
+	}
+	catch(NumberFormatException e)
+	{
+		return false;
+	}
+	
+	return true;
+	*/
+}
+     
+     public static boolean isNull(String string)
+     {
+        return string==null?true:false;
+       
+     }
+
 }
